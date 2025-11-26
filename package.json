@@ -1,0 +1,180 @@
+{
+  "name": "jupyter-next",
+  "description": "Jupyter notebook support for Pulsar with interactive computing, kernel management, and rich output rendering.",
+  "repository": "https://github.com/asiloisad/pulsar-jupyter-next",
+  "keywords": [
+    "jupyter",
+    "notebook",
+    "ipynb",
+    "python",
+    "interactive",
+    "kernel",
+    "data-science",
+    "visualization"
+  ],
+  "version": "0.1.0",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.100.0 <2.0.0"
+  },
+  "main": "./lib/main",
+  "deserializers": {
+    "JupyterNotebookEditor": "deserializeNotebookEditor"
+  },
+  "providedServices": {
+    "jupyter": {
+      "versions": {
+        "1.0.0": "provideJupyter"
+      }
+    }
+  },
+  "dependencies": {
+    "@nteract/outputs": "^5.1.14",
+    "ansi-to-react": "^6.1.6",
+    "atom-select-list": "^0.8.1",
+    "mathjax-full": "^3.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.11",
+    "uuid": "^11.1.0"
+  },
+  "overrides": {
+    "nan": "2.22.0",
+    "uuid": "^11.1.0",
+    "react": "^17.0.2",
+    "react-is": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "prismjs": "^1.29.0",
+    "trim": "^1.0.1"
+  },
+  "package-deps": [
+    "hydrogen-next"
+  ],
+  "configSchema": {
+    "kernels": {
+      "order": 1,
+      "title": "Kernel Settings",
+      "type": "object",
+      "properties": {
+        "jupyterPath": {
+          "order": 1,
+          "title": "Jupyter Path",
+          "description": "Path to Jupyter executable. Leave empty for auto-detection.",
+          "type": "string",
+          "default": ""
+        },
+        "startupTimeout": {
+          "order": 2,
+          "title": "Kernel Startup Timeout",
+          "description": "Maximum time in seconds to wait for kernel to start.",
+          "type": "integer",
+          "default": 60,
+          "minimum": 10,
+          "maximum": 300
+        },
+        "shutdownTimeout": {
+          "order": 3,
+          "title": "Kernel Shutdown Timeout",
+          "description": "Maximum time in seconds to wait for kernel to shutdown gracefully.",
+          "type": "integer",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 30
+        }
+      }
+    },
+    "notebook": {
+      "order": 2,
+      "title": "Notebook Settings",
+      "type": "object",
+      "properties": {
+        "scrollOutput": {
+          "order": 1,
+          "title": "Scroll Long Output",
+          "description": "Scroll output cells that exceed a certain height.",
+          "type": "boolean",
+          "default": true
+        },
+        "maxOutputHeight": {
+          "order": 2,
+          "title": "Max Output Height",
+          "description": "Maximum height in pixels for output cells before scrolling.",
+          "type": "integer",
+          "default": 400,
+          "minimum": 100,
+          "maximum": 2000
+        },
+        "showCellNumbers": {
+          "order": 3,
+          "title": "Show Cell Numbers",
+          "description": "Display execution count numbers on cells.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "display": {
+      "order": 3,
+      "title": "Display Settings",
+      "type": "object",
+      "properties": {
+        "theme": {
+          "order": 1,
+          "title": "Notebook Theme",
+          "description": "Color theme for notebook display.",
+          "type": "string",
+          "enum": [
+            "auto",
+            "light",
+            "dark"
+          ],
+          "default": "auto"
+        },
+        "fontSize": {
+          "order": 2,
+          "title": "Font Size",
+          "description": "Font size for notebook cells (0 = use editor font size).",
+          "type": "integer",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 32
+        },
+        "lineNumbers": {
+          "order": 3,
+          "title": "Show Line Numbers",
+          "description": "Display line numbers in code cells.",
+          "type": "boolean",
+          "default": true
+        },
+        "wordWrap": {
+          "order": 4,
+          "title": "Word Wrap",
+          "description": "Wrap long lines in code cells.",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "execution": {
+      "order": 4,
+      "title": "Execution Settings",
+      "type": "object",
+      "properties": {
+        "interruptOnError": {
+          "order": 1,
+          "title": "Interrupt on Error",
+          "description": "Stop execution of remaining cells when an error occurs.",
+          "type": "boolean",
+          "default": true
+        },
+        "clearOutputBeforeRun": {
+          "order": 2,
+          "title": "Clear Output Before Run",
+          "description": "Clear cell output before running the cell.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  }
+}

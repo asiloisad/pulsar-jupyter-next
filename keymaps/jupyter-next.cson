@@ -1,0 +1,118 @@
+# Jupyter Next Keymaps
+#
+# Two modes:
+# - Command mode: cell is selected, but not editing (blue border in Jupyter)
+# - Edit mode: cursor is inside the cell editor (green border in Jupyter)
+#
+# Use 'escape' to exit edit mode, 'enter' to enter edit mode
+
+# Global keymaps
+'atom-workspace':
+  'ctrl-shift-n': 'jupyter-next:new-notebook'
+
+# =============================================================================
+# COMMAND MODE - cell selected but not editing
+# =============================================================================
+'.jupyter-notebook.command-mode':
+  # Run commands
+  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'ctrl-enter': 'jupyter-next:run-cell'
+  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+
+  # Enter edit mode
+  'enter': 'jupyter-next:enter-edit-mode'
+
+  # Navigation
+  'up': 'jupyter-next:focus-previous-cell'
+  'down': 'jupyter-next:focus-next-cell'
+  'k': 'jupyter-next:focus-previous-cell'
+  'j': 'jupyter-next:focus-next-cell'
+  'home': 'jupyter-next:focus-first-cell'
+  'end': 'jupyter-next:focus-last-cell'
+
+  # Cell insertion
+  'a': 'jupyter-next:insert-cell-above'
+  'b': 'jupyter-next:insert-cell-below'
+  'shift-a': 'jupyter-next:insert-cell-above-and-extend-selection'
+  'shift-b': 'jupyter-next:insert-cell-below-and-extend-selection'
+
+  # Cell deletion (double-tap d)
+  'd d': 'jupyter-next:delete-cell'
+
+  # Cut/Copy/Paste cells
+  'x': 'jupyter-next:cut-cell'
+  'c': 'jupyter-next:copy-cell'
+  'v': 'jupyter-next:paste-cell-below'
+  'shift-v': 'jupyter-next:paste-cell-above'
+
+  # Undo/Redo cell operations
+  'z': 'jupyter-next:undo-cell-operation'
+  'shift-z': 'jupyter-next:redo-cell-operation'
+
+  # Change cell type
+  'y': 'jupyter-next:change-cell-to-code'
+  'm': 'jupyter-next:change-cell-to-markdown'
+  'r': 'jupyter-next:change-cell-to-raw'
+
+  # Cell display
+  'l': 'jupyter-next:toggle-line-numbers'
+  'o': 'jupyter-next:toggle-cell-output'
+  'shift-o': 'jupyter-next:toggle-cell-output-scrolling'
+  'i': 'jupyter-next:toggle-cell-input'
+
+  # Move cells
+  'ctrl-shift-up': 'jupyter-next:move-cell-up'
+  'ctrl-shift-down': 'jupyter-next:move-cell-down'
+
+  # Merge cells
+  'shift-m': 'jupyter-next:merge-cell-below'
+
+  # Duplicate cell
+  'ctrl-shift-d': 'jupyter-next:duplicate-cell'
+
+  # Kernel operations
+  'i i': 'jupyter-next:interrupt-kernel'
+  '0 0': 'jupyter-next:restart-kernel'
+
+# =============================================================================
+# EDIT MODE - when editing inside atom-text-editor in a cell
+# =============================================================================
+# Target the actual text editor element
+'.jupyter-notebook.edit-mode atom-text-editor':
+  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'ctrl-enter': 'jupyter-next:run-cell'
+  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+  'escape': 'jupyter-next:enter-command-mode'
+  'ctrl-shift-minus': 'jupyter-next:split-cell-at-cursor'
+
+# Also add to edit-mode container for when focus is on notebook but not editor
+'.jupyter-notebook.edit-mode':
+  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'ctrl-enter': 'jupyter-next:run-cell'
+  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+  'escape': 'jupyter-next:enter-command-mode'
+
+# =============================================================================
+# NOTEBOOK-WIDE (both modes)
+# =============================================================================
+'.jupyter-notebook':
+  'ctrl-shift-c': 'jupyter-next:interrupt-kernel'
+  'ctrl-shift-r': 'jupyter-next:restart-kernel'
+  'ctrl-s': 'jupyter-next:save'
+  'ctrl-shift-s': 'jupyter-next:save-as'
+
+  # Pane split commands (override Pulsar defaults that don't work with notebooks)
+  'ctrl-k left': 'jupyter-next:split-left'
+  'ctrl-k right': 'jupyter-next:split-right'
+  'ctrl-k up': 'jupyter-next:split-up'
+  'ctrl-k down': 'jupyter-next:split-down'
+  'ctrl-k ctrl-left': 'jupyter-next:split-left-and-copy'
+  'ctrl-k ctrl-right': 'jupyter-next:split-right-and-copy'
+  'ctrl-k ctrl-up': 'jupyter-next:split-up-and-copy'
+  'ctrl-k ctrl-down': 'jupyter-next:split-down-and-copy'
+
+# Fallback: target any atom-text-editor inside jupyter notebook
+'.jupyter-notebook atom-text-editor':
+  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'ctrl-enter': 'jupyter-next:run-cell'
+  'alt-enter': 'jupyter-next:run-cell-and-insert-below'

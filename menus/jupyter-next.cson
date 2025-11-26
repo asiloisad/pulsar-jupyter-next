@@ -1,0 +1,59 @@
+# Jupyter Next Menus
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      {
+        'label': 'Jupyter'
+        'submenu': [
+          { 'label': 'New Notebook', 'command': 'jupyter-next:new-notebook' }
+          { 'label': 'Open Notebook...', 'command': 'application:open-file' }
+          { 'type': 'separator' }
+          { 'label': 'Connect to Kernel', 'command': 'jupyter-next:connect-kernel' }
+          { 'label': 'Disconnect Kernel', 'command': 'jupyter-next:disconnect-kernel' }
+          { 'label': 'Restart Kernel', 'command': 'jupyter-next:restart-kernel' }
+          { 'label': 'Interrupt Kernel', 'command': 'jupyter-next:interrupt-kernel' }
+          { 'type': 'separator' }
+          { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
+          { 'label': 'Run Cell and Advance', 'command': 'jupyter-next:run-cell-and-advance' }
+          { 'label': 'Run All Cells', 'command': 'jupyter-next:run-all-cells' }
+          { 'label': 'Run All Above', 'command': 'jupyter-next:run-all-above' }
+          { 'label': 'Run All Below', 'command': 'jupyter-next:run-all-below' }
+          { 'type': 'separator' }
+          { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
+          { 'label': 'Clear All Outputs', 'command': 'jupyter-next:clear-all-outputs' }
+          { 'type': 'separator' }
+          { 'label': 'Export to Python', 'command': 'jupyter-next:export-to-python' }
+          { 'label': 'Export to HTML', 'command': 'jupyter-next:export-to-html' }
+        ]
+      }
+    ]
+  }
+]
+
+'context-menu':
+  '.jupyter-notebook': [
+    { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
+    { 'label': 'Run Cell and Advance', 'command': 'jupyter-next:run-cell-and-advance' }
+    { 'type': 'separator' }
+    { 'label': 'Insert Cell Above', 'command': 'jupyter-next:insert-cell-above' }
+    { 'label': 'Insert Cell Below', 'command': 'jupyter-next:insert-cell-below' }
+    { 'type': 'separator' }
+    { 'label': 'Delete Cell', 'command': 'jupyter-next:delete-cell' }
+    { 'label': 'Move Cell Up', 'command': 'jupyter-next:move-cell-up' }
+    { 'label': 'Move Cell Down', 'command': 'jupyter-next:move-cell-down' }
+    { 'type': 'separator' }
+    { 'label': 'Change to Code', 'command': 'jupyter-next:change-cell-to-code' }
+    { 'label': 'Change to Markdown', 'command': 'jupyter-next:change-cell-to-markdown' }
+    { 'label': 'Change to Raw', 'command': 'jupyter-next:change-cell-to-raw' }
+    { 'type': 'separator' }
+    { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
+    { 'label': 'Toggle Output', 'command': 'jupyter-next:toggle-cell-output' }
+  ]
+  '.jupyter-cell': [
+    { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
+    { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
+    { 'type': 'separator' }
+    { 'label': 'Delete Cell', 'command': 'jupyter-next:delete-cell' }
+  ]

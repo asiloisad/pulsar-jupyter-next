@@ -1,0 +1,589 @@
+// Jupyter Panel Styles for Pulsar
+
+@import "ui-variables";
+@import "syntax-variables";
+
+// Variables
+@jupyter-cell-border: fade(@text-color, 10%);
+@jupyter-cell-active-border: @text-color-info;
+@jupyter-cell-running-border: @text-color-warning;
+@jupyter-cell-error-border: @text-color-error;
+@jupyter-gutter-width: 50px;
+@jupyter-cell-padding: 6px;
+
+// Stable container element (used for ViewRegistry caching workaround)
+.jupyter-notebook-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+// Main notebook container
+.jupyter-notebook {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: @app-background-color;
+  overflow: hidden;
+}
+
+// Toolbar
+.jupyter-notebook-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 7px;
+  background-color: @tool-panel-background-color;
+  border-bottom: 1px solid @base-border-color;
+  flex-shrink: 0;
+
+  .toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .toolbar-separator {
+    width: 1px;
+    height: 20px;
+    background-color: @base-border-color;
+    margin: 0 4px;
+  }
+
+  .cell-type-select {
+    min-width: 100px;
+  }
+
+  .mode-indicator {
+    padding: 2px 8px;
+    border-radius: @component-border-radius;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .kernel-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: @component-border-radius;
+    background-color: fade(@text-color, 5%);
+
+    .kernel-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &.idle {
+        background-color: @text-color-success;
+      }
+
+      &.busy {
+        background-color: @text-color-warning;
+        animation: pulse 1s infinite;
+      }
+
+      &.starting, &.restarting {
+        background-color: @text-color-info;
+        animation: pulse 1s infinite;
+      }
+
+      &.error, &.dead {
+        background-color: @text-color-error;
+      }
+
+      &.disconnected {
+        background-color: @text-color-subtle;
+      }
+    }
+
+    .kernel-name {
+      color: @text-color;
+    }
+  }
+}
+
+// Cells container
+.jupyter-notebook-cells {
+  flex: 1;
+  overflow-y: auto;
+}
+
+// Mode-specific styles
+.jupyter-notebook {
+  // Command mode - blue border on active cell
+  &.command-mode {
+    .mode-indicator {
+      background-color: fade(@text-color-info, 20%);
+      color: @text-color-info;
+    }
+
+    .jupyter-cell.active {
+      border-color: @text-color-info;
+      border-left-color: @text-color-info;
+    }
+  }
+
+  // Edit mode - green border on active cell
+  &.edit-mode {
+    .mode-indicator {
+      background-color: fade(@text-color-success, 20%);
+      color: @text-color-success;
+    }
+
+    .jupyter-cell.active {
+      border-color: @text-color-success;
+      border-left-color: @text-color-success;
+    }
+  }
+}
+
+// Individual cell
+.jupyter-cell {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid @app-background-color;
+  border-left-width: 4px;
+  border-left-color: @app-background-color;
+  border-radius: @component-border-radius;
+  background-color: @syntax-background-color;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: fade(@text-color, 20%);
+    border-left-color: fade(@text-color, 20%);
+  }
+
+  &.active {
+    border-color: @jupyter-cell-active-border;
+    border-left-color: @jupyter-cell-active-border;
+  }
+
+  &.running {
+    border-color: @jupyter-cell-running-border;
+    border-left-color: @jupyter-cell-running-border;
+
+    .cell-gutter .execution-count {
+      color: @text-color-warning;
+    }
+  }
+
+  &.error {
+    border-color: @jupyter-cell-error-border;
+    border-left-color: @jupyter-cell-error-border;
+  }
+
+  // Multiple selection - selected but not active
+  &.selected:not(.active) {
+    border-color: fade(@text-color-info, 50%);
+    border-left-color: fade(@text-color-info, 50%);
+  }
+
+  // Drag and drop states
+  &.dragging {
+    opacity: 0.5;
+    background-color: fade(@text-color, 5%);
+  }
+
+  &.drop-above {
+    box-shadow: 0 -3px 0 0 @text-color-info;
+  }
+
+  &.drop-below {
+    box-shadow: 0 3px 0 0 @text-color-info;
+  }
+}
+
+// Cell gutter (execution count and type indicator)
+.cell-gutter {
+  width: @jupyter-gutter-width;
+  flex-shrink: 0;
+  padding: @jupyter-cell-padding;
+  background-color: fade(@text-color, 3%);
+  border-right: 1px solid @jupyter-cell-border;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  .execution-count {
+    font-family: @font-family;
+    color: @text-color-subtle;
+    font-weight: bold;
+  }
+
+  .cell-type-indicator {
+    color: @text-color-subtle;
+    text-transform: uppercase;
+  }
+
+  .cell-execution-time {
+    color: @text-color-subtle;
+    font-family: @font-family;
+  }
+}
+
+// Cell content area
+.cell-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+// Cell input area
+.cell-input {
+  padding: @jupyter-cell-padding;
+
+  .cell-editor-container {
+    atom-text-editor {
+      min-height: 1.5em;
+
+      &.is-focused {
+        border-color: @text-color-info;
+      }
+    }
+
+    .jupyter-cell-editor {
+      border: none;
+      background: transparent;
+    }
+  }
+}
+
+// Hide cursor-line in non-active cells and in command mode
+.jupyter-cell:not(.active),
+.jupyter-notebook.command-mode .jupyter-cell {
+  atom-text-editor {
+    .cursor-line {
+      background-color: transparent !important;
+    }
+  }
+}
+
+.markdown-rendered {
+  padding: 4px;
+  line-height: 1.5;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.2em; }
+
+  p {
+    margin-bottom: 0.5em;
+  }
+
+  code {
+    background-color: fade(@text-color, 10%);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: @font-family;
+  }
+
+  pre {
+    background-color: fade(@text-color, 5%);
+    padding: 8px;
+    border-radius: 4px;
+    overflow-x: auto;
+
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+}
+
+// Cell output area (only styled when it has content)
+.cell-output-container:not(:empty) {
+  border-top: 1px solid @jupyter-cell-border;
+  padding: @jupyter-cell-padding;
+  background-color: transparent;
+}
+
+// Output rendering
+.jupyter-outputs {
+  font-family: var(--editor-font-family), @font-family;
+  font-size: var(--editor-font-size, @font-size);
+  line-height: 1.4;
+
+  // Add margin between multiple outputs
+  > div + div {
+    margin-top: 4px;
+  }
+
+  .output-stream, .output-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+  }
+
+  .output-stdout {
+    color: @text-color;
+  }
+
+  .output-stderr {
+    color: @text-color-warning;
+  }
+
+  .output-error {
+    .error-header {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .error-name {
+      color: @text-color-error;
+    }
+
+    .error-value {
+      color: @text-color;
+    }
+
+    .error-traceback {
+      margin: 0;
+      padding: 0;
+      color: @text-color-error;
+      overflow-x: auto;
+    }
+  }
+
+  .output-html {
+    padding: 0;
+  }
+
+  .output-image {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .output-svg {
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .output-latex {
+    text-align: left;
+  }
+
+  .output-markdown {
+    // Inherit styles
+  }
+
+  .output-json, .output-javascript {
+    .output-code {
+      background-color: fade(@text-color, 5%);
+      padding: 8px;
+      border-radius: 4px;
+      overflow-x: auto;
+
+      code {
+        font-family: @font-family;
+      }
+    }
+  }
+
+  .output-pdf {
+    embed {
+      border: 1px solid @base-border-color;
+      border-radius: 4px;
+    }
+  }
+
+  .output-widget {
+    .output-widget-placeholder {
+      padding: 16px;
+      text-align: center;
+      background-color: fade(@text-color, 5%);
+      border-radius: 4px;
+      color: @text-color-subtle;
+      font-style: italic;
+    }
+  }
+
+  // ANSI color support
+  .ansi-bold { font-weight: bold; }
+  .ansi-italic { font-style: italic; }
+  .ansi-underline { text-decoration: underline; }
+
+  // Standard colors
+  .ansi-black { color: #000; }
+  .ansi-red { color: #c91b00; }
+  .ansi-green { color: #00c200; }
+  .ansi-yellow { color: #c7c400; }
+  .ansi-blue { color: #0225c7; }
+  .ansi-magenta { color: #c930c7; }
+  .ansi-cyan { color: #00c5c7; }
+  .ansi-white { color: #c7c7c7; }
+
+  // Bright colors
+  .ansi-bright-black { color: #676767; }
+  .ansi-bright-red { color: #ff6d67; }
+  .ansi-bright-green { color: #5ff967; }
+  .ansi-bright-yellow { color: #fefb67; }
+  .ansi-bright-blue { color: #6871ff; }
+  .ansi-bright-magenta { color: #ff76ff; }
+  .ansi-bright-cyan { color: #5ffdff; }
+  .ansi-bright-white { color: #fff; }
+
+  // Background colors
+  .ansi-bg-black { background-color: #000; }
+  .ansi-bg-red { background-color: #c91b00; }
+  .ansi-bg-green { background-color: #00c200; }
+  .ansi-bg-yellow { background-color: #c7c400; }
+  .ansi-bg-blue { background-color: #0225c7; }
+  .ansi-bg-magenta { background-color: #c930c7; }
+  .ansi-bg-cyan { background-color: #00c5c7; }
+  .ansi-bg-white { background-color: #c7c7c7; }
+}
+
+// Cell actions (appear on hover)
+.cell-actions {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: none;
+  gap: 2px;
+}
+
+.jupyter-cell {
+  position: relative;
+
+  &:hover .cell-actions {
+    display: flex;
+  }
+}
+
+// Kernel picker modal
+.kernel-picker {
+  width: 400px;
+  max-height: 400px;
+  background-color: @overlay-background-color;
+  border-radius: @component-border-radius;
+  overflow: hidden;
+
+  atom-text-editor[mini] {
+    margin: 8px;
+  }
+
+  .list-group {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .kernel-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      background-color: @background-color-highlight;
+    }
+
+    &.selected {
+      background-color: @button-background-color-selected;
+      color: @text-color-selected;
+    }
+
+    .kernel-name {
+      font-weight: 500;
+    }
+
+    .kernel-language {
+      color: @text-color-subtle;
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Loading state
+.jupyter-notebook-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  color: @text-color-subtle;
+
+  .loading-spinner-large {
+    width: 32px;
+    height: 32px;
+    border: 3px solid @base-border-color;
+    border-top-color: @text-color-info;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  .error-message {
+    color: @text-color-error;
+    padding: 16px;
+    background-color: fade(@background-color-error, 10%);
+    border-radius: @component-border-radius;
+    max-width: 400px;
+    text-align: center;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Dark theme adjustments
+.theme-one-dark-ui, .theme-atom-dark-ui {
+  .jupyter-notebook {
+    .cell-output {
+      background-color: fade(#000, 20%);
+    }
+  }
+}
+
+// Light theme adjustments
+.theme-one-light-ui, .theme-atom-light-ui {
+  .jupyter-notebook {
+    .cell-gutter {
+      background-color: fade(#000, 3%);
+    }
+
+    .cell-output {
+      background-color: fade(#000, 2%);
+    }
+  }
+}
