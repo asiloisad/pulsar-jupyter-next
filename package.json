@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "atom-select-list": "^0.8.1",
-    "mathjax-full": "^3.2.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^5.3.11",
