@@ -10,8 +10,11 @@
 @jupyter-gutter-width: 50px;
 @jupyter-cell-padding: 6px;
 
+// All styles scoped under .jupyter-next
+.jupyter-next {
+
 // Stable container element (used for ViewRegistry caching workaround)
-.jupyter-notebook-container {
+&.jupyter-notebook-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -479,25 +482,6 @@
   }
 }
 
-// Animations
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
 // Loading state
 .jupyter-notebook-loading {
   display: flex;
@@ -527,6 +511,27 @@
   }
 }
 
+} // end .jupyter-next
+
+// Animations (at root level)
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -535,7 +540,7 @@
 
 // Dark theme adjustments
 .theme-one-dark-ui, .theme-atom-dark-ui {
-  .jupyter-notebook {
+  .jupyter-next .jupyter-notebook {
     .cell-output {
       background-color: fade(#000, 20%);
     }
@@ -544,7 +549,7 @@
 
 // Light theme adjustments
 .theme-one-light-ui, .theme-atom-light-ui {
-  .jupyter-notebook {
+  .jupyter-next .jupyter-notebook {
     .cell-gutter {
       background-color: fade(#000, 3%);
     }
