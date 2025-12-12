@@ -1,7 +1,6 @@
-// Jupyter Panel Styles for Pulsar
-
 @import "ui-variables";
 @import "syntax-variables";
+@import '../node_modules/pulsar-select-list/select.less';
 
 // Variables
 @jupyter-cell-border: fade(@text-color, 10%);
@@ -477,52 +476,6 @@
 
   &:hover .cell-actions {
     display: flex;
-  }
-}
-
-// Kernel picker modal
-.kernel-picker {
-  width: 400px;
-  max-height: 400px;
-  background-color: @overlay-background-color;
-  border-radius: @component-border-radius;
-  overflow: hidden;
-
-  atom-text-editor[mini] {
-    margin: 8px;
-  }
-
-  .list-group {
-    max-height: 300px;
-    overflow-y: auto;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .kernel-item {
-    padding: 8px 12px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &:hover {
-      background-color: @background-color-highlight;
-    }
-
-    &.selected {
-      background-color: @button-background-color-selected;
-      color: @text-color-selected;
-    }
-
-    .kernel-name {
-      font-weight: 500;
-    }
-
-    .kernel-language {
-      color: @text-color-subtle;
-    }
   }
 }
 
