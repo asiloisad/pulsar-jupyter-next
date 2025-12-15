@@ -60,9 +60,8 @@
       "title": "Max Output Height",
       "description": "Maximum height in pixels for output cells before scrolling.",
       "type": "integer",
-      "default": 400,
-      "minimum": 100,
-      "maximum": 2000
+      "default": 1000,
+      "minimum": 100
     },
     "wordWrap": {
       "order": 4,
