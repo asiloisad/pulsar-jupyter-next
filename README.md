@@ -1,48 +1,75 @@
 # jupyter-next
 
-Jupyter notebook support with interactive computing, kernel management, and rich output rendering.
+Open and edit Jupyter notebooks. Interactive computing with kernel management and rich output rendering.
 
-- **Open and edit Jupyter notebooks** (.ipynb files)
-- **Execute code cells** with real-time output
-- **Markdown cells** with live preview
-- **Multiple kernel support** (Python, Julia, R, and more)
-- **Rich output rendering** including images, HTML, LaTeX, and plots
-- **Cell operations**: insert, delete, move, merge, split
-- **Keyboard shortcuts** compatible with Jupyter conventions
-- **Export notebooks** to Python scripts or HTML
-- **Status bar integration** showing kernel status
+## Features
+
+- **Notebook editing**: Open and edit `.ipynb` files with cell-based interface.
+- **Execute cells**: Run code with real-time output display.
+- **Markdown support**: Live preview for markdown cells.
+- **Multiple kernels**: Python, Julia, R, and other Jupyter kernels.
+- **Rich output**: Images, HTML, LaTeX, and interactive plots.
+- **Cell operations**: Insert, delete, move, merge, and split cells.
+- **Export options**: Save as Python scripts or HTML.
 
 ## Installation
 
-To install `jupypter-next` search for [jupypter-next](https://web.pulsar-edit.dev/packages/jupypter-next) in the Install pane of the Pulsar settings or run `ppm install jupypter-next`. Alternatively, you can run `ppm install asiloisad/pulsar-jupypter-next` to install a package directly from the GitHub repository.
+To install `jupyter-next` search for [jupyter-next](https://web.pulsar-edit.dev/packages/jupyter-next) in the Install pane of the Pulsar settings or run `ppm install jupyter-next`. Alternatively, you can run `ppm install asiloisad/pulsar-jupyter-next` to install a package directly from the GitHub repository.
 
-Make sure [hydrogen-next](https://web.pulsar-edit.dev/packages/hydrogen-next) is installed, because this package reuse it elements.
+This package requires [hydrogen-next](https://web.pulsar-edit.dev/packages/hydrogen-next) for kernel execution.
 
-## Usage
+## Commands
 
-### Opening a Notebook
+Commands available in `atom-workspace`:
 
-- Open any `.ipynb` file
-- Or use `Packages > Jupyter > New Notebook`
-- Or use the command palette: `Jupyter Panel: New Notebook`
+- `jupyter-next:toggle`: toggle jupyter panel,
+- `jupyter-next:new-notebook`: create new notebook.
 
-### Running Cells
+Commands available in `.jupyter-notebook`:
 
-- **Shift+Enter**: Run cell and advance to next
-- **Ctrl+Enter**: Run cell and stay
-- **Alt+Enter**: Run cell and insert new cell below
+- `jupyter-next:run-cell`: (`Ctrl+Enter`) run cell and stay,
+- `jupyter-next:run-cell-and-advance`: (`Shift+Enter`) run cell and advance,
+- `jupyter-next:run-all-cells`: run all cells,
+- `jupyter-next:run-all-above`: run all cells above,
+- `jupyter-next:run-all-below`: run all cells below,
+- `jupyter-next:clear-output`: clear cell output,
+- `jupyter-next:clear-all-outputs`: clear all outputs,
+- `jupyter-next:insert-cell-above`: (`A`) insert cell above,
+- `jupyter-next:insert-cell-below`: (`B`) insert cell below,
+- `jupyter-next:delete-cell`: (`D D`) delete cell,
+- `jupyter-next:move-cell-up`: move cell up,
+- `jupyter-next:move-cell-down`: move cell down,
+- `jupyter-next:change-cell-to-code`: (`Y`) change to code cell,
+- `jupyter-next:change-cell-to-markdown`: (`M`) change to markdown cell,
+- `jupyter-next:change-cell-to-raw`: change to raw cell,
+- `jupyter-next:toggle-cell-output`: toggle output visibility,
+- `jupyter-next:toggle-cell-input`: toggle input visibility,
+- `jupyter-next:connect-kernel`: connect to kernel,
+- `jupyter-next:disconnect-kernel`: disconnect kernel,
+- `jupyter-next:restart-kernel`: restart kernel,
+- `jupyter-next:interrupt-kernel`: interrupt kernel,
+- `jupyter-next:enter-edit-mode`: (`Enter`) enter edit mode,
+- `jupyter-next:enter-command-mode`: (`Escape`) enter command mode,
+- `jupyter-next:focus-previous-cell`: (`K`) focus previous cell,
+- `jupyter-next:focus-next-cell`: (`J`) focus next cell,
+- `jupyter-next:focus-first-cell`: focus first cell,
+- `jupyter-next:focus-last-cell`: focus last cell,
+- `jupyter-next:cut-cell`: (`X`) cut cell,
+- `jupyter-next:copy-cell`: (`C`) copy cell,
+- `jupyter-next:paste-cell-below`: (`V`) paste cell below,
+- `jupyter-next:paste-cell-above`: paste cell above,
+- `jupyter-next:duplicate-cell`: duplicate cell,
+- `jupyter-next:merge-cell-below`: merge with cell below,
+- `jupyter-next:undo-cell-operation`: (`Z`) undo cell operation,
+- `jupyter-next:redo-cell-operation`: redo cell operation,
+- `jupyter-next:save`: save notebook,
+- `jupyter-next:save-as`: save notebook as,
+- `jupyter-next:export-to-python`: export to Python script,
+- `jupyter-next:export-to-html`: export to HTML.
 
-### Cell Operations
+## Service
 
-- **A**: Insert cell above (command mode)
-- **B**: Insert cell below (command mode)
-- **D D**: Delete cell (command mode)
-- **M**: Change to markdown (command mode)
-- **Y**: Change to code (command mode)
-
-## API
-
-The package provides a service that other packages can consume:
+The package provides a `jupyter-next` service for other packages.
 
 ```javascript
 // In your package
@@ -63,6 +90,6 @@ consumeJupyter(jupyter) {
 }
 ```
 
-# Contributing
+## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
