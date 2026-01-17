@@ -8,15 +8,23 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 - **Execute cells**: Run code with real-time output display.
 - **Markdown support**: Live preview for markdown cells.
 - **Multiple kernels**: Python, Julia, R, and other Jupyter kernels.
-- **Rich output**: Images, HTML, LaTeX, and interactive plots.
+- **Rich output**: Images, HTML, LaTeX, Plotly, Vega, and interactive plots.
 - **Cell operations**: Insert, delete, move, merge, and split cells.
+- **Multi-select cells**: Ctrl+click to toggle, Shift+click for range selection.
+- **Drag & drop**: Reorder cells by dragging with auto-scroll near edges.
+- **Undo/redo**: Full cell operation history with keyboard shortcuts.
+- **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
+- **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
+- **Variable Explorer**: Browse and inspect variables from notebook cells via hydrogen-next.
+- **Kernel Monitor**: Track kernel status and resource usage via hydrogen-next.
+- **Inspector**: Get documentation and introspection for objects via hydrogen-next.
 - **Export options**: Save as Python scripts or HTML.
 
 ## Installation
 
 To install `jupyter-next` search for [jupyter-next](https://web.pulsar-edit.dev/packages/jupyter-next) in the Install pane of the Pulsar settings or run `ppm install jupyter-next`. Alternatively, you can run `ppm install asiloisad/pulsar-jupyter-next` to install a package directly from the GitHub repository.
 
-This package requires [hydrogen-next](https://web.pulsar-edit.dev/packages/hydrogen-next) for kernel execution.
+This package requires [hydrogen-next](https://web.pulsar-edit.dev/packages/hydrogen-next).
 
 ## Commands
 
