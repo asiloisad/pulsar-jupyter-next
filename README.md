@@ -2,6 +2,8 @@
 
 Open and edit Jupyter notebooks. Interactive computing with kernel management and rich output rendering.
 
+![demo](https://github.com/asiloisad/pulsar-jupyter-next/blob/master/assets/demo.png?raw=true)
+
 ## Features
 
 - **Notebook editing**: Open and edit `.ipynb` files with cell-based interface.
