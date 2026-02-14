@@ -77,12 +77,27 @@ Commands available in `.jupyter-notebook`:
 - `jupyter-next:export-to-python`: export to Python script,
 - `jupyter-next:export-to-html`: export to HTML.
 
-## Service
+## Provided Service `jupyter-next`
 
-The package provides a `jupyter-next` service for other packages.
+Allows other packages to interact with Jupyter notebooks — access kernel management, run code, and monitor kernel status.
+
+In your `package.json`:
+
+```json
+{
+  "consumedServices": {
+    "jupyter-next": {
+      "versions": {
+        "1.0.0": "consumeJupyter"
+      }
+    }
+  }
+}
+```
+
+In your main module:
 
 ```javascript
-// In your package
 consumeJupyter(jupyter) {
   // Get kernel manager
   const kernelManager = jupyter.getKernelManager()

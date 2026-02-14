@@ -1,6 +1,6 @@
 {
   "name": "jupyter-next",
-  "description": "Jupyter notebook support with interactive computing, kernel management, and rich output rendering.",
+  "description": "Open and edit Jupyter notebooks",
   "repository": "https://github.com/asiloisad/pulsar-jupyter-next",
   "keywords": [
     "jupyter",
