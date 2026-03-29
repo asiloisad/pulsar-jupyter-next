@@ -79,7 +79,7 @@ Commands available in `.jupyter-notebook`:
 
 ## Provided Service `jupyter-next`
 
-Allows other packages to interact with Jupyter notebooks — access kernel management, run code, and monitor kernel status.
+Allows other packages to interact with Jupyter notebooks: access kernel management, run code, and monitor kernel status.
 
 In your `package.json`:
 
@@ -117,4 +117,4 @@ consumeJupyter(jupyter) {
 
 ## Contributing
 
-Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub — any feedback's welcome!
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
