@@ -7,13 +7,15 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 ## Features
 
 - **Notebook editing**: Open and edit `.ipynb` files with cell-based interface.
-- **Execute cells**: Run code with real-time output display.
-- **Markdown support**: Live preview for markdown cells.
+- **Execute cells**: Run code with real-time output display and a live execution timer while running.
+- **Markdown support**: Live preview for markdown cells, rendered whenever the notebook is in command mode.
 - **Multiple kernels**: Python, Julia, R, and other Jupyter kernels.
 - **Rich output**: Images, HTML, LaTeX, Plotly, Vega, and interactive plots.
 - **Cell operations**: Insert, delete, move, merge, and split cells.
-- **Multi-select cells**: Ctrl+click to toggle, Shift+click for range selection.
-- **Drag & drop**: Reorder cells by dragging with auto-scroll near edges.
+- **Cell hover actions**: Run, clear output, and delete buttons appear on cell hover and act on that specific cell without changing the active cell.
+- **Cell type selector**: Switch active cell type via the toolbar dropdown or mouse wheel scroll over the selector.
+- **Multi-select cells**: Ctrl+click to toggle, Shift+click for range selection, Shift+Up/Down to grow the selection from an anchor cell.
+- **Drag & drop**: Reorder cells by dragging with auto-scroll near edges. Selection and active cell are preserved across the move.
 - **Undo/redo**: Full cell operation history with keyboard shortcuts.
 - **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
 - **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
@@ -51,7 +53,7 @@ Commands available in `.jupyter-notebook`:
 - `jupyter-next:move-cell-down`: move cell down,
 - `jupyter-next:change-cell-to-code`: <kbd>Y</kbd> change to code cell,
 - `jupyter-next:change-cell-to-markdown`: <kbd>M</kbd> change to markdown cell,
-- `jupyter-next:change-cell-to-raw`: change to raw cell,
+- `jupyter-next:change-cell-to-raw`: <kbd>R</kbd> change to raw cell,
 - `jupyter-next:toggle-cell-output`: toggle output visibility,
 - `jupyter-next:toggle-cell-input`: toggle input visibility,
 - `jupyter-next:connect-kernel`: connect to kernel,
@@ -64,6 +66,8 @@ Commands available in `.jupyter-notebook`:
 - `jupyter-next:focus-next-cell`: <kbd>J</kbd> focus next cell,
 - `jupyter-next:focus-first-cell`: focus first cell,
 - `jupyter-next:focus-last-cell`: focus last cell,
+- `jupyter-next:select-previous-cell`: <kbd>Shift+Up</kbd> extend selection to previous cell,
+- `jupyter-next:select-next-cell`: <kbd>Shift+Down</kbd> extend selection to next cell,
 - `jupyter-next:cut-cell`: <kbd>X</kbd> cut cell,
 - `jupyter-next:copy-cell`: <kbd>C</kbd> copy cell,
 - `jupyter-next:paste-cell-below`: <kbd>V</kbd> paste cell below,
