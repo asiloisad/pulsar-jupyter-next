@@ -30,6 +30,12 @@
   'home': 'jupyter-next:focus-first-cell'
   'end': 'jupyter-next:focus-last-cell'
 
+  # Extend selection (anchor-based, like file explorer)
+  'shift-up': 'jupyter-next:select-previous-cell'
+  'shift-down': 'jupyter-next:select-next-cell'
+  'shift-k': 'jupyter-next:select-previous-cell'
+  'shift-j': 'jupyter-next:select-next-cell'
+
   # Cell insertion
   'a': 'jupyter-next:insert-cell-above'
   'b': 'jupyter-next:insert-cell-below'
