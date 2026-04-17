@@ -168,11 +168,13 @@
   }
 
   &.running {
-    border-color: @jupyter-cell-running-border;
-    border-left-color: @jupyter-cell-running-border;
+    .cell-gutter {
+      background-color: fade(@jupyter-cell-running-border, 18%);
 
-    .cell-gutter .execution-count {
-      color: @text-color-warning;
+      .execution-count {
+        color: @text-color-warning;
+        animation: blink 1s ease-in-out infinite;
+      }
     }
   }
 
