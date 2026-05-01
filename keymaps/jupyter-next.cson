@@ -66,6 +66,10 @@
   'shift-o': 'jupyter-next:toggle-cell-output-scrolling'
   'i': 'jupyter-next:toggle-cell-input'
 
+  # Smooth scroll (mirrors smooth-scroll keybindings for text editors)
+  'alt-pageup': 'smooth-scroll:scroll-up'
+  'alt-pagedown': 'smooth-scroll:scroll-down'
+
   # Move cells
   'ctrl-shift-up': 'jupyter-next:move-cell-up'
   'ctrl-shift-down': 'jupyter-next:move-cell-down'
