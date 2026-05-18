@@ -19,6 +19,9 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 - **Undo/redo**: Full cell operation history with keyboard shortcuts.
 - **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
 - **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
+- **Cell numbers**: Each cell shows its 1-based index in the left gutter.
+- **Linting support**: Code cells are linted by packages such as [linter-ruff](https://github.com/asiloisad/pulsar-linter-ruff) and [linter-todo](https://github.com/asiloisad/pulsar-linter-todo). Messages are mapped back to individual cells and the linter panel shows `[cell]:line:col` position.
+- **Navigation panel**: Markdown cell headings appear in [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) and can be navigated directly.
 - **Variable Explorer**: Browse and inspect variables from notebook cells via hydrogen-next.
 - **Kernel Monitor**: Track kernel status and resource usage via hydrogen-next.
 - **Inspector**: Get documentation and introspection for objects via hydrogen-next.
@@ -80,6 +83,42 @@ Commands available in `.jupyter-notebook`:
 - `jupyter-next:save-as`: save notebook as,
 - `jupyter-next:export-to-python`: export to Python script,
 - `jupyter-next:export-to-html`: export to HTML.
+
+## Provided Service `linter-adapter`
+
+Integrates Jupyter notebooks with [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle). Linters that support the `source.jupyter` grammar scope (such as `linter-ruff` and `linter-todo`) lint the notebook source and messages are routed back to the correct cell editor.
+
+In your `package.json`:
+
+```json
+{
+  "consumedServices": {
+    "linter-adapter": {
+      "versions": {
+        "1.0.0": "consumeItemLinterAdapter"
+      }
+    }
+  }
+}
+```
+
+## Provided Service `navigation-adapter`
+
+Integrates Jupyter notebooks with [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel). Headings from markdown cells are exposed as a navigation tree.
+
+In your `package.json`:
+
+```json
+{
+  "consumedServices": {
+    "navigation-adapter": {
+      "versions": {
+        "1.0.0": "consumeNavigationAdapter"
+      }
+    }
+  }
+}
+```
 
 ## Provided Service `jupyter-next`
 

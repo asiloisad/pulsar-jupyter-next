@@ -26,6 +26,16 @@
       "versions": {
         "1.0.0": "provideJupyter"
       }
+    },
+    "linter-adapter": {
+      "versions": {
+        "1.0.0": "provideLinterItemAdapter"
+      }
+    },
+    "navigation-adapter": {
+      "versions": {
+        "1.0.0": "provideNavigationAdapter"
+      }
     }
   },
   "dependencies": {
