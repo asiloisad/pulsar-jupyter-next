@@ -92,6 +92,7 @@
   'shift-enter': 'jupyter-next:run-cell-and-advance'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+  'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
   'ctrl-shift-minus': 'jupyter-next:split-cell-at-cursor'
 
@@ -100,6 +101,7 @@
   'shift-enter': 'jupyter-next:run-cell-and-advance'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+  'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
 
 # =============================================================================
@@ -126,3 +128,4 @@
   'shift-enter': 'jupyter-next:run-cell-and-advance'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
+  'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
