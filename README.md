@@ -45,7 +45,7 @@ Commands available in `atom-workspace`:
 Commands available in `.jupyter-notebook`:
 
 - `jupyter-next:run-cell`: <kbd>Ctrl+Enter</kbd> run cell and stay,
-- `jupyter-next:run-cell-and-advance`: <kbd>Shift+Enter</kbd> run cell and advance,
+- `jupyter-next:run-cell-and-move-down`: <kbd>Shift+Enter</kbd> run cell and move down,
 - `jupyter-next:run-all-cells`: run all cells,
 - `jupyter-next:run-all-above`: run all cells above,
 - `jupyter-next:run-all-below`: run all cells below,

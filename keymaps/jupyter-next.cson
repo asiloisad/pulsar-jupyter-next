@@ -15,7 +15,7 @@
 # =============================================================================
 '.jupyter-notebook.command-mode':
   # Run commands
-  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'shift-enter': 'jupyter-next:run-cell-and-move-down'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
 
@@ -89,7 +89,7 @@
 # =============================================================================
 # Target the actual text editor element
 '.jupyter-notebook.edit-mode atom-text-editor':
-  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'shift-enter': 'jupyter-next:run-cell-and-move-down'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
@@ -98,7 +98,7 @@
 
 # Also add to edit-mode container for when focus is on notebook but not editor
 '.jupyter-notebook.edit-mode':
-  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'shift-enter': 'jupyter-next:run-cell-and-move-down'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
@@ -125,7 +125,7 @@
 
 # Fallback: target any atom-text-editor inside jupyter notebook
 '.jupyter-notebook atom-text-editor':
-  'shift-enter': 'jupyter-next:run-cell-and-advance'
+  'shift-enter': 'jupyter-next:run-cell-and-move-down'
   'ctrl-enter': 'jupyter-next:run-cell'
   'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'

@@ -17,7 +17,7 @@
           { 'label': 'Interrupt Kernel', 'command': 'jupyter-next:interrupt-kernel' }
           { 'type': 'separator' }
           { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
-          { 'label': 'Run Cell and Advance', 'command': 'jupyter-next:run-cell-and-advance' }
+          { 'label': 'Run Cell and Move Down', 'command': 'jupyter-next:run-cell-and-move-down' }
           { 'label': 'Run All Cells', 'command': 'jupyter-next:run-all-cells' }
           { 'label': 'Run All Above', 'command': 'jupyter-next:run-all-above' }
           { 'label': 'Run All Below', 'command': 'jupyter-next:run-all-below' }
@@ -36,7 +36,7 @@
 'context-menu':
   '.jupyter-notebook': [
     { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
-    { 'label': 'Run Cell and Advance', 'command': 'jupyter-next:run-cell-and-advance' }
+    { 'label': 'Run Cell and Move Down', 'command': 'jupyter-next:run-cell-and-move-down' }
     { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
     { 'type': 'separator' }
     { 'label': 'Insert Cell Above', 'command': 'jupyter-next:insert-cell-above' }
