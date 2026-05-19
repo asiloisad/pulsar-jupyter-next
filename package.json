@@ -21,6 +21,13 @@
   "deserializers": {
     "JupyterNotebookEditor": "deserializeNotebookEditor"
   },
+  "consumedServices": {
+    "tree-view": {
+      "versions": {
+        "1.0.0": "consumeTreeView"
+      }
+    }
+  },
   "providedServices": {
     "jupyter": {
       "versions": {
