@@ -222,6 +222,15 @@
       cursor: grabbing;
     }
 
+    .cell-prompt {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px;
+      // width: 100%;
+      white-space: nowrap;
+    }
+
     .cell-number {
       font-family: @font-family;
       color: fade(@text-color, 25%);
@@ -230,8 +239,8 @@
 
     .execution-count {
       font-family: @font-family;
-      color: @text-color-subtle;
-      font-weight: bold;
+      color: fade(@text-color, 25%);
+      font-size: 0.75em;
     }
 
     .cell-type-indicator {

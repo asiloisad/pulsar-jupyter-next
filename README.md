@@ -20,7 +20,7 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 - **Open source**: Open `.ipynb` files as plain JSON text from an active notebook or tree-view.
 - **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
 - **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
-- **Cell numbers**: Each cell shows its 1-based index in the left gutter.
+- **Cell numbers**: Each cell shows its 1-based index, and code cells show Jupyter-style execution counts such as `[1]`.
 - **Linting support**: Code cells are linted by packages such as [linter-ruff](https://github.com/asiloisad/pulsar-linter-ruff) and [linter-todo](https://github.com/asiloisad/pulsar-linter-todo). Messages are mapped back to individual cells and the linter panel shows `[cell]:line:col` position.
 - **Navigation panel**: Markdown cell headings appear in [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) and can be navigated directly.
 - **Variable Explorer**: Browse and inspect variables from notebook cells via hydrogen-next.
