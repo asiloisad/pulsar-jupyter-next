@@ -9,6 +9,7 @@
         'submenu': [
           { 'label': 'New Notebook', 'command': 'jupyter-next:new-notebook' }
           { 'label': 'Open Notebook...', 'command': 'application:open-file' }
+          { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
           { 'type': 'separator' }
           { 'label': 'Connect to Kernel', 'command': 'jupyter-next:connect-kernel' }
           { 'label': 'Disconnect Kernel', 'command': 'jupyter-next:disconnect-kernel' }
@@ -36,6 +37,7 @@
   '.jupyter-notebook': [
     { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
     { 'label': 'Run Cell and Advance', 'command': 'jupyter-next:run-cell-and-advance' }
+    { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
     { 'type': 'separator' }
     { 'label': 'Insert Cell Above', 'command': 'jupyter-next:insert-cell-above' }
     { 'label': 'Insert Cell Below', 'command': 'jupyter-next:insert-cell-below' }
@@ -56,4 +58,7 @@
     { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
     { 'type': 'separator' }
     { 'label': 'Delete Cell', 'command': 'jupyter-next:delete-cell' }
+  ]
+  '.tree-view .full-menu [is="tree-view-file"]': [
+    { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
   ]
