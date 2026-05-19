@@ -51,7 +51,7 @@
   'v': 'jupyter-next:paste-cell-below'
   'shift-v': 'jupyter-next:paste-cell-above'
 
-  # Undo/Redo cell operations
+  # Undo/Redo notebook edits
   'z': 'jupyter-next:undo-cell-operation'
   'shift-z': 'jupyter-next:redo-cell-operation'
 

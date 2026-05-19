@@ -16,7 +16,7 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 - **Cell type selector**: Switch active cell type via the toolbar dropdown or mouse wheel scroll over the selector.
 - **Multi-select cells**: Ctrl+click to toggle, Shift+click for range selection, Shift+Up/Down to grow the selection from an anchor cell.
 - **Drag & drop**: Reorder cells by dragging with auto-scroll near edges. Selection and active cell are preserved across the move.
-- **Undo/redo**: Full cell operation history with keyboard shortcuts.
+- **Undo/redo**: Single notebook edit history for cell text and notebook operations.
 - **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
 - **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
 - **Cell numbers**: Each cell shows its 1-based index in the left gutter.
@@ -77,8 +77,8 @@ Commands available in `.jupyter-notebook`:
 - `jupyter-next:paste-cell-above`: paste cell above,
 - `jupyter-next:duplicate-cell`: duplicate cell,
 - `jupyter-next:merge-cell-below`: merge with cell below,
-- `jupyter-next:undo-cell-operation`: <kbd>Z</kbd> undo cell operation,
-- `jupyter-next:redo-cell-operation`: redo cell operation,
+- `jupyter-next:undo-cell-operation`: <kbd>Z</kbd> undo the latest notebook edit,
+- `jupyter-next:redo-cell-operation`: redo the latest notebook edit,
 - `jupyter-next:save`: save notebook,
 - `jupyter-next:save-as`: save notebook as,
 - `jupyter-next:export-to-python`: export to Python script,
