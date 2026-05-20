@@ -70,72 +70,94 @@
     "hydrogen-next"
   ],
   "configSchema": {
-    "scrollOutput": {
+    "notebook": {
       "order": 1,
-      "title": "Scroll Long Output",
-      "description": "Scroll output cells that exceed maximum height.",
-      "type": "boolean",
-      "default": true
+      "title": "Notebook",
+      "description": "Notebook-level settings.",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "useOpener": {
+          "order": 1,
+          "title": "Use Workspace Opener",
+          "description": "Open .ipynb files with jupyter-next through the Pulsar workspace opener.",
+          "type": "boolean",
+          "default": true
+        }
+      }
     },
-    "maxInputHeight": {
+    "input": {
       "order": 2,
-      "title": "Max Input Height",
-      "description": "Maximum height in pixels for input cells. Zero means unlimited.",
-      "type": "integer",
-      "default": 0,
-      "minimum": 0
+      "title": "Input Cell",
+      "description": "Input cell display and editing settings.",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "maxHeight": {
+          "order": 1,
+          "title": "Max Height",
+          "description": "Maximum height in pixels for input cells. Zero means unlimited.",
+          "type": "integer",
+          "default": 0,
+          "minimum": 0
+        }
+      }
     },
-    "maxOutputHeight": {
+    "output": {
       "order": 3,
-      "title": "Max Output Height",
-      "description": "Maximum height in pixels for output cells before scrolling.",
-      "type": "integer",
-      "default": 1000,
-      "minimum": 100
+      "title": "Output Cell",
+      "description": "Output cell display settings.",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "maxHeight": {
+          "order": 1,
+          "title": "Max Height",
+          "description": "Maximum height in pixels for output cells before scrolling.",
+          "type": "integer",
+          "default": 1000,
+          "minimum": 100
+        },
+        "clearBeforeRun": {
+          "order": 3,
+          "title": "Clear Before Run",
+          "description": "Clear cell output before running the cell.",
+          "type": "boolean",
+          "default": true
+        }
+      }
     },
-    "wordWrap": {
+    "scrollmap": {
       "order": 4,
-      "title": "Word Wrap",
-      "description": "Wrap long lines in code cells.",
-      "type": "boolean",
-      "default": true
-    },
-    "clearOutputBeforeRun": {
-      "order": 5,
-      "title": "Clear Output Before Run",
-      "description": "Clear cell output before running the cell.",
-      "type": "boolean",
-      "default": true
-    },
-    "useOpener": {
-      "order": 6,
-      "title": "Use Workspace Opener",
-      "description": "Open .ipynb files with jupyter-next through the Pulsar workspace opener.",
-      "type": "boolean",
-      "default": true
-    },
-    "scrollmapEnabled": {
-      "order": 7,
-      "title": "Show Scrollmap",
-      "description": "Show markdown heading and selected cell markers on the notebook scrollbar when the scrollmap package is available.",
-      "type": "boolean",
-      "default": true
-    },
-    "scrollmapThreshold": {
-      "order": 8,
-      "title": "Scrollmap Threshold",
-      "description": "Hide notebook scrollmap markers if their count exceeds this value. Zero means no limit.",
-      "type": "integer",
-      "default": 0,
-      "minimum": 0
-    },
-    "scrollmapDepth": {
-      "order": 9,
-      "title": "Scrollmap Depth",
-      "description": "Maximum markdown heading depth to show in the notebook scrollmap. Zero means no limit.",
-      "type": "integer",
-      "default": 0,
-      "minimum": 0
+      "title": "Scrollmap",
+      "description": "Scrollmap marker settings.",
+      "type": "object",
+      "collapsed": true,
+      "properties": {
+        "enabled": {
+          "order": 1,
+          "title": "Show Scrollmap",
+          "description": "Show markdown heading and selected cell markers on the notebook scrollbar when the scrollmap package is available.",
+          "type": "boolean",
+          "default": true
+        },
+        "threshold": {
+          "order": 2,
+          "title": "Threshold",
+          "description": "Hide scrollmap markers if their count exceeds this value. Zero means no limit.",
+          "type": "integer",
+          "default": 0,
+          "minimum": 0
+        },
+        "depth": {
+          "order": 3,
+          "title": "Depth",
+          "description": "Maximum markdown heading depth to show in the scrollmap. Zero means no limit.",
+          "type": "integer",
+          "default": 0,
+          "minimum": 0
+        }
+      }
     }
   }
 }
