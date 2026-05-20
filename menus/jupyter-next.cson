@@ -60,5 +60,6 @@
     { 'label': 'Delete Cell', 'command': 'jupyter-next:delete-cell' }
   ]
   '.tree-view .full-menu [is="tree-view-file"]': [
+    { 'label': 'Open Notebook', 'command': 'jupyter-next:open' }
     { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
   ]

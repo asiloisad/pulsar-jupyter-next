@@ -99,15 +99,22 @@
       "type": "boolean",
       "default": true
     },
-    "scrollmapEnabled": {
+    "useOpener": {
       "order": 6,
+      "title": "Use Workspace Opener",
+      "description": "Open .ipynb files with jupyter-next through the Pulsar workspace opener.",
+      "type": "boolean",
+      "default": true
+    },
+    "scrollmapEnabled": {
+      "order": 7,
       "title": "Show Scrollmap",
       "description": "Show markdown heading and selected cell markers on the notebook scrollbar when the scrollmap package is available.",
       "type": "boolean",
       "default": true
     },
     "scrollmapThreshold": {
-      "order": 7,
+      "order": 8,
       "title": "Scrollmap Threshold",
       "description": "Hide notebook scrollmap markers if their count exceeds this value. Zero means no limit.",
       "type": "integer",
@@ -115,7 +122,7 @@
       "minimum": 0
     },
     "scrollmapDepth": {
-      "order": 8,
+      "order": 9,
       "title": "Scrollmap Depth",
       "description": "Maximum markdown heading depth to show in the notebook scrollmap. Zero means no limit.",
       "type": "integer",

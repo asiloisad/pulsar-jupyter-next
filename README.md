@@ -21,8 +21,9 @@ Open and edit Jupyter notebooks. Interactive computing with kernel management an
 - **Dual mode**: Command mode for navigation, edit mode for typing (like Jupyter).
 - **Jupyter keybindings**: Familiar shortcuts like J/K navigation, A/B insert, D D delete.
 - **Cell numbers**: Each cell shows its 1-based index, and code cells show Jupyter-style execution counts such as `[1]`.
-- **Linting support**: Code cells are linted by packages such as [linter-ruff](https://github.com/asiloisad/pulsar-linter-ruff) and [linter-todo](https://github.com/asiloisad/pulsar-linter-todo). Messages are mapped back to individual cells and the linter panel shows `[cell]:line:col` position.
+- **Linting support**: Code cells are linted by packages such as [linter-ruff](https://github.com/asiloisad/pulsar-linter-ruff) and [linter-todo](https://github.com/asiloisad/pulsar-linter-todo). Messages are mapped back to individual cells and the linter panel shows `[cell]:line:col` position. A base [linter-bundle](https://github.com/asiloisad/pulsar-linter-bundle) is required.
 - **Navigation panel**: Markdown cell headings appear in [navigation-panel](https://github.com/asiloisad/pulsar-navigation-panel) and can be navigated directly.
+- **Scrollmap markers**: Markdown headings and selected or active cells appear on the scrollbar when [scrollmap](https://github.com/asiloisad/pulsar-scrollmap) is installed.
 - **Variable Explorer**: Browse and inspect variables from notebook cells via hydrogen-next.
 - **Kernel Monitor**: Track kernel status and resource usage via hydrogen-next.
 - **Inspector**: Get documentation and introspection for objects via hydrogen-next.
@@ -89,7 +90,15 @@ Commands available in `.jupyter-notebook`:
 
 Commands available in `.tree-view`:
 
+- `jupyter-next:open`: open the selected `.ipynb` file as a notebook,
 - `jupyter-next:open-source`: open the selected `.ipynb` file as plain text.
+
+## Consumed Services
+
+`jupyter-next` consumes these services when the provider package is available:
+
+- `tree-view@1.0.0`: reads the selected file path for tree-view commands such as `jupyter-next:open` and `jupyter-next:open-source`.
+- `simplemap@1.0.0`: provided by [scrollmap](https://github.com/asiloisad/pulsar-scrollmap) and used to render notebook scrollbar markers.
 
 ## Provided Service `linter-adapter`
 
@@ -127,7 +136,7 @@ In your `package.json`:
 }
 ```
 
-## Provided Service `jupyter-next`
+## Provided Service `jupyter`
 
 Allows other packages to interact with Jupyter notebooks: access kernel management, run code, and monitor kernel status.
 
@@ -136,7 +145,7 @@ In your `package.json`:
 ```json
 {
   "consumedServices": {
-    "jupyter-next": {
+    "jupyter": {
       "versions": {
         "1.0.0": "consumeJupyter"
       }
@@ -154,6 +163,9 @@ consumeJupyter(jupyter) {
 
   // Get active notebook
   const notebook = jupyter.getActiveNotebook()
+
+  // Get notebook document registry
+  const documentRegistry = jupyter.getDocumentRegistry()
 
   // Run code
   const result = await jupyter.runCode('print("Hello")', 'python3')
