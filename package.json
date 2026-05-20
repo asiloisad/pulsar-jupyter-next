@@ -77,8 +77,16 @@
       "type": "boolean",
       "default": true
     },
-    "maxOutputHeight": {
+    "maxInputHeight": {
       "order": 2,
+      "title": "Max Input Height",
+      "description": "Maximum height in pixels for input cells. Zero means unlimited.",
+      "type": "integer",
+      "default": 0,
+      "minimum": 0
+    },
+    "maxOutputHeight": {
+      "order": 3,
       "title": "Max Output Height",
       "description": "Maximum height in pixels for output cells before scrolling.",
       "type": "integer",
