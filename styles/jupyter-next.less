@@ -23,9 +23,64 @@
   .jupyter-notebook {
     display: flex;
     flex-direction: column;
+    position: relative;
     height: 100%;
     background-color: @app-background-color;
     overflow: hidden;
+  }
+
+  .jupyter-header-map.simplemap {
+    .marker {
+      &.marker-jupyter-h1 {
+        z-index: 15;
+        height: 4px;
+        background-color: @ui-site-color-1;
+      }
+
+      &.marker-jupyter-h2 {
+        z-index: 14;
+        height: 3px;
+        background-color: @ui-site-color-2;
+      }
+
+      &.marker-jupyter-h3 {
+        z-index: 13;
+        height: 2px;
+        background-color: @ui-site-color-3;
+      }
+
+      &.marker-jupyter-h4 {
+        z-index: 12;
+        height: 2px;
+        background-color: @ui-site-color-4;
+      }
+
+      &.marker-jupyter-h5,
+      &.marker-jupyter-h6 {
+        z-index: 11;
+        height: 2px;
+        background-color: @ui-site-color-5;
+      }
+
+      &.marker-jupyter-selected {
+        z-index: 18;
+        min-height: 3px;
+        background-color: fade(@jupyter-cell-active-border, 50%);
+      }
+
+      &.marker-jupyter-active {
+        z-index: 18;
+        min-height: 3px;
+      }
+
+      &.marker-jupyter-active-command {
+        background-color: @jupyter-cell-active-border;
+      }
+
+      &.marker-jupyter-active-edit {
+        background-color: @text-color-success;
+      }
+    }
   }
 
   // Toolbar
