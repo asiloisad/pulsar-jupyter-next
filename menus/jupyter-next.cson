@@ -11,17 +11,6 @@
           { 'label': 'Open Notebook...', 'command': 'application:open-file' }
           { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
           { 'type': 'separator' }
-          { 'label': 'Connect to Kernel', 'command': 'jupyter-next:connect-kernel' }
-          { 'label': 'Disconnect Kernel', 'command': 'jupyter-next:disconnect-kernel' }
-          { 'label': 'Restart Kernel', 'command': 'jupyter-next:restart-kernel' }
-          { 'label': 'Interrupt Kernel', 'command': 'jupyter-next:interrupt-kernel' }
-          { 'type': 'separator' }
-          { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
-          { 'label': 'Run Cell and Move Down', 'command': 'jupyter-next:run-cell-and-move-down' }
-          { 'label': 'Run All Cells', 'command': 'jupyter-next:run-all-cells' }
-          { 'label': 'Run All Above', 'command': 'jupyter-next:run-all-above' }
-          { 'label': 'Run All Below', 'command': 'jupyter-next:run-all-below' }
-          { 'type': 'separator' }
           { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
           { 'label': 'Clear All Outputs', 'command': 'jupyter-next:clear-all-outputs' }
           { 'type': 'separator' }
@@ -35,8 +24,6 @@
 
 'context-menu':
   '.jupyter-notebook': [
-    { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
-    { 'label': 'Run Cell and Move Down', 'command': 'jupyter-next:run-cell-and-move-down' }
     { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
     { 'type': 'separator' }
     { 'label': 'Insert Cell Above', 'command': 'jupyter-next:insert-cell-above' }
@@ -54,12 +41,11 @@
     { 'label': 'Toggle Output', 'command': 'jupyter-next:toggle-cell-output' }
   ]
   '.jupyter-cell': [
-    { 'label': 'Run Cell', 'command': 'jupyter-next:run-cell' }
     { 'label': 'Clear Output', 'command': 'jupyter-next:clear-output' }
     { 'type': 'separator' }
     { 'label': 'Delete Cell', 'command': 'jupyter-next:delete-cell' }
   ]
   '.tree-view .file .name[data-name$=\\.ipynb]': [
-    { 'label': 'Open Notebook', 'command': 'jupyter-next:open' }
+    { 'label': 'Open Notebook', 'command': 'jupyter-next:open-notebook' }
     { 'label': 'Open Source', 'command': 'jupyter-next:open-source' }
   ]

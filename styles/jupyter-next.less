@@ -4,7 +4,6 @@
 // Variables
 @jupyter-cell-border: fade(@text-color, 10%);
 @jupyter-cell-active-border: @text-color-info;
-@jupyter-cell-running-border: @text-color-warning;
 @jupyter-cell-error-border: @text-color-error;
 @jupyter-gutter-width: 50px;
 @jupyter-cell-padding: 6px;
@@ -99,12 +98,6 @@
       gap: 4px;
     }
 
-    .toolbar-right {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
     .toolbar-separator {
       width: 1px;
       height: 20px;
@@ -123,49 +116,6 @@
       text-transform: uppercase;
     }
 
-    .kernel-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 8px;
-      border-radius: @component-border-radius;
-      background-color: fade(@text-color, 5%);
-
-      .kernel-status {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-
-        &.idle {
-          background-color: @text-color-success;
-        }
-
-        &.busy {
-          background-color: @text-color-warning;
-          animation: pulse 1s infinite;
-        }
-
-        &.starting,
-        &.restarting {
-          background-color: @text-color-info;
-          animation: pulse 1s infinite;
-        }
-
-        &.error,
-        &.dead {
-          background-color: @text-color-error;
-        }
-
-        &.disconnected {
-          background-color: @text-color-subtle;
-        }
-      }
-
-      .kernel-name {
-        color: @text-color;
-        white-space: nowrap;
-      }
-    }
   }
 
   // Cells container
@@ -222,17 +172,6 @@
     &.active {
       border-color: @jupyter-cell-active-border;
       border-left-color: @jupyter-cell-active-border;
-    }
-
-    &.running {
-      .cell-gutter {
-        background-color: fade(@jupyter-cell-running-border, 18%);
-
-        .execution-count {
-          color: @text-color-warning;
-          animation: blink 1s ease-in-out infinite;
-        }
-      }
     }
 
     &.error {
@@ -304,10 +243,6 @@
       text-transform: uppercase;
     }
 
-    .cell-execution-time {
-      color: @text-color-subtle;
-      font-family: @font-family;
-    }
   }
 
   // Cell content area

@@ -14,11 +14,6 @@
 # COMMAND MODE - cell selected but not editing
 # =============================================================================
 '.jupyter-notebook.command-mode':
-  # Run commands
-  'shift-enter': 'jupyter-next:run-cell-and-move-down'
-  'ctrl-enter': 'jupyter-next:run-cell'
-  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
-
   # Enter edit mode
   'enter': 'jupyter-next:enter-edit-mode'
 
@@ -61,9 +56,7 @@
   'r': 'jupyter-next:change-cell-to-raw'
 
   # Cell display
-  'l': 'jupyter-next:toggle-line-numbers'
   'o': 'jupyter-next:toggle-cell-output'
-  'shift-o': 'jupyter-next:toggle-cell-output-scrolling'
   'i': 'jupyter-next:toggle-cell-input'
 
   # Smooth scroll (mirrors smooth-scroll keybindings for text editors)
@@ -80,27 +73,16 @@
   # Duplicate cell
   'ctrl-shift-d': 'jupyter-next:duplicate-cell'
 
-  # Kernel operations
-  'i i': 'jupyter-next:interrupt-kernel'
-  '0 0': 'jupyter-next:restart-kernel'
-
 # =============================================================================
 # EDIT MODE - when editing inside atom-text-editor in a cell
 # =============================================================================
 # Target the actual text editor element
 '.jupyter-notebook.edit-mode atom-text-editor':
-  'shift-enter': 'jupyter-next:run-cell-and-move-down'
-  'ctrl-enter': 'jupyter-next:run-cell'
-  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
-  'ctrl-shift-minus': 'jupyter-next:split-cell-at-cursor'
 
 # Also add to edit-mode container for when focus is on notebook but not editor
 '.jupyter-notebook.edit-mode':
-  'shift-enter': 'jupyter-next:run-cell-and-move-down'
-  'ctrl-enter': 'jupyter-next:run-cell'
-  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
 
@@ -108,8 +90,6 @@
 # NOTEBOOK-WIDE (both modes)
 # =============================================================================
 '.jupyter-notebook':
-  'ctrl-shift-c': 'jupyter-next:interrupt-kernel'
-  'ctrl-shift-r': 'jupyter-next:restart-kernel'
   'ctrl-s': 'jupyter-next:save'
   'ctrl-shift-s': 'jupyter-next:save-as'
 
@@ -125,7 +105,4 @@
 
 # Fallback: target any atom-text-editor inside jupyter notebook
 '.jupyter-notebook atom-text-editor':
-  'shift-enter': 'jupyter-next:run-cell-and-move-down'
-  'ctrl-enter': 'jupyter-next:run-cell'
-  'alt-enter': 'jupyter-next:run-cell-and-insert-below'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
