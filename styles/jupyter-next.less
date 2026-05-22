@@ -5,8 +5,32 @@
 @jupyter-cell-border: fade(@text-color, 10%);
 @jupyter-cell-active-border: @text-color-info;
 @jupyter-cell-error-border: @text-color-error;
-@jupyter-gutter-width: 50px;
+@jupyter-gutter-width: 72px;
 @jupyter-cell-padding: 6px;
+
+@keyframes jupyter-cell-running-pulse {
+  0% {
+    border-left-color: fade(@text-color-warning, 65%);
+  }
+  50% {
+    border-left-color: fade(@text-color-warning, 32%);
+  }
+  100% {
+    border-left-color: fade(@text-color-warning, 65%);
+  }
+}
+
+// Marching diagonal stripes on the cell gutter while a cell is running.
+// 45-degree hatch with period ~14px (10px * sqrt(2)); animating background-position
+// by one full diagonal period creates a seamless upward-marching effect.
+@keyframes jupyter-gutter-hatch-march {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 14px 14px;
+  }
+}
 
 // All styles scoped under .jupyter-next
 .jupyter-next {
@@ -115,7 +139,6 @@
       font-weight: bold;
       text-transform: uppercase;
     }
-
   }
 
   // Cells container
@@ -177,6 +200,32 @@
     &.error {
       border-color: @jupyter-cell-error-border;
       border-left-color: @jupyter-cell-error-border;
+    }
+
+    // Executing
+    &.running {
+      border-left-color: fade(@text-color-warning, 65%);
+      animation: jupyter-cell-running-pulse 1.8s ease-in-out infinite;
+      transition: none;
+
+      .execution-count {
+        color: fade(@text-color-warning, 80%);
+      }
+
+      .cell-timer {
+        color: fade(@text-color-warning, 80%);
+      }
+
+      .cell-gutter {
+        background-image: repeating-linear-gradient(
+          -45deg,
+          fade(@text-color-warning, 10%) 0,
+          fade(@text-color-warning, 10%) 4px,
+          transparent 4px,
+          transparent 10px
+        );
+        animation: jupyter-gutter-hatch-march 1.4s linear infinite;
+      }
     }
 
     // Multiple selection - selected but not active
@@ -243,6 +292,25 @@
       text-transform: uppercase;
     }
 
+    .cell-timer {
+      font-size: 0.75em;
+      font-family: @font-family;
+      color: fade(@text-color, 25%);
+      text-align: right;
+      white-space: nowrap;
+      min-height: 1em;
+    }
+
+    &.running {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        fade(@text-color-warning, 10%) 0,
+        fade(@text-color-warning, 10%) 4px,
+        transparent 4px,
+        transparent 10px
+      );
+      animation: jupyter-gutter-hatch-march 1.4s linear infinite;
+    }
   }
 
   // Cell content area
