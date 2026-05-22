@@ -13,12 +13,15 @@ Open and edit Jupyter notebooks in Pulsar.
 - **Cell type selector**: Switch active cell type via the toolbar dropdown or mouse wheel scroll over the selector.
 - **Multi-select cells**: Ctrl+click to toggle, Shift+click for range selection, Shift+Up/Down to grow the selection from an anchor cell.
 - **Drag & drop**: Reorder cells by dragging with auto-scroll near edges.
-- **Undo/redo**: Single notebook edit history for cell text and notebook operations.
+- **Undo/redo**: Buffer-based notebook edit history for cell text and notebook operations.
 - **Open source**: Open `.ipynb` files as plain JSON text from an active notebook or tree-view.
 - **Dual mode**: Command mode for navigation, edit mode for typing.
+- **Hydrogen execution**: Run cells with [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next) via the `hydrogen-adapter` service. Run/interrupt/restart/shutdown buttons appear in the toolbar; each code cell shows a per-cell Run button; <kbd>Ctrl+Enter</kbd> and <kbd>Shift+Enter</kbd> are bound to run the current cell.
+- **Execution status**: Running cells pulse a warning border and show a marching diagonal hatch on the gutter. The execution count switches to `[*]` while running. Each cell's gutter shows the last completed run duration.
+- **Output protection**: Output images cannot be dragged out of the notebook.
 - **Linting support**: Code cells are exposed through a backing `.ipynb` editor for linter integrations.
 - **Navigation panel**: Markdown headings are exposed through the navigation adapter.
-- **Scrollmap markers**: Markdown headings and selected or active cells appear on the scrollbar when `scrollmap` is installed.
+- **Scrollmap markers**: Markdown headings, selected or active cells, and linter messages appear on the notebook scrollbar when `scrollmap` is installed. Linter ticks render in the left lane and are color-coded by severity.
 - **Export options**: Save as Python scripts or HTML.
 
 ## Installation
@@ -80,5 +83,7 @@ Tree-view commands:
 It provides:
 
 - `jupyter@1.0.0`: access to the active notebook and document registry.
-- `linter-adapter@1.0.0`: map linter messages to notebook cell editors.
+- `hydrogen-adapter@1.0.0`: lets `hydrogen-next` run notebook cells through the adapter pattern (target enumeration, output routing, kernel control).
+- `linter-adapter@1.0.0`: map linter messages to notebook cell editors for navigation and the current-message UI.
+- `linter-ui@1.0.0`: receive linter message sets so they can be rendered as markers on the notebook scrollmap.
 - `navigation-adapter@1.0.0`: expose markdown headings as navigation entries.
