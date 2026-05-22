@@ -87,3 +87,7 @@ It provides:
 - `linter-adapter@1.0.0`: map linter messages to notebook cell editors for navigation and the current-message UI.
 - `linter-ui@1.0.0`: receive linter message sets so they can be rendered as markers on the notebook scrollmap.
 - `navigation-adapter@1.0.0`: expose markdown headings as navigation entries.
+
+## Contributing
+
+Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
