@@ -36,6 +36,11 @@
         "1.0.0": "provideJupyter"
       }
     },
+    "hydrogen-adapter": {
+      "versions": {
+        "1.0.0": "provideHydrogenAdapter"
+      }
+    },
     "linter-adapter": {
       "versions": {
         "1.0.0": "provideLinterItemAdapter"

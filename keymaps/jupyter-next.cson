@@ -78,11 +78,15 @@
 # =============================================================================
 # Target the actual text editor element
 '.jupyter-notebook.edit-mode atom-text-editor':
+  'ctrl-enter': 'hydrogen-next:run-cell'
+  'shift-enter': 'hydrogen-next:run-cell-and-move-down'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
 
 # Also add to edit-mode container for when focus is on notebook but not editor
 '.jupyter-notebook.edit-mode':
+  'ctrl-enter': 'hydrogen-next:run-cell'
+  'shift-enter': 'hydrogen-next:run-cell-and-move-down'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
   'escape': 'jupyter-next:enter-command-mode'
 
@@ -90,6 +94,8 @@
 # NOTEBOOK-WIDE (both modes)
 # =============================================================================
 '.jupyter-notebook':
+  'ctrl-enter': 'hydrogen-next:run-cell'
+  'shift-enter': 'hydrogen-next:run-cell-and-move-down'
   'ctrl-s': 'jupyter-next:save'
   'ctrl-shift-s': 'jupyter-next:save-as'
 
@@ -101,4 +107,6 @@
 
 # Fallback: target any atom-text-editor inside jupyter notebook
 '.jupyter-notebook atom-text-editor':
+  'ctrl-enter': 'hydrogen-next:run-cell'
+  'shift-enter': 'hydrogen-next:run-cell-and-move-down'
   'alt-shift-enter': 'jupyter-next:insert-cell-below-and-edit'
