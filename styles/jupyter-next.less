@@ -103,6 +103,23 @@
       &.marker-jupyter-active-edit {
         background-color: @text-color-success;
       }
+
+      // Linter message markers (style matches the scrollmap-linter package).
+      // The `left` class on the marker pins it to the left side of the strip
+      // via the Simplemap framework's built-in rules; we only colour it here.
+      &.marker-linter {
+        z-index: 15;
+
+        &.error {
+          background-color: @text-color-error;
+        }
+        &.warning {
+          background-color: @text-color-warning;
+        }
+        &.info {
+          background-color: @text-color-info;
+        }
+      }
     }
   }
 

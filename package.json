@@ -46,6 +46,11 @@
         "1.0.0": "provideLinterItemAdapter"
       }
     },
+    "linter-ui": {
+      "versions": {
+        "1.0.0": "provideLinterUI"
+      }
+    },
     "navigation-adapter": {
       "versions": {
         "1.0.0": "provideNavigationAdapter"
