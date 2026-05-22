@@ -93,15 +93,11 @@
   'ctrl-s': 'jupyter-next:save'
   'ctrl-shift-s': 'jupyter-next:save-as'
 
-  # Pane split commands (override Pulsar defaults that don't work with notebooks)
-  'ctrl-k left': 'jupyter-next:split-left'
-  'ctrl-k right': 'jupyter-next:split-right'
-  'ctrl-k up': 'jupyter-next:split-up'
-  'ctrl-k down': 'jupyter-next:split-down'
-  'ctrl-k ctrl-left': 'jupyter-next:split-left-and-copy'
-  'ctrl-k ctrl-right': 'jupyter-next:split-right-and-copy'
-  'ctrl-k ctrl-up': 'jupyter-next:split-up-and-copy'
-  'ctrl-k ctrl-down': 'jupyter-next:split-down-and-copy'
+  # Keep pane splits scoped to notebooks while using Pulsar's native pane commands.
+  'ctrl-k left': 'pane:split-left-and-copy-active-item'
+  'ctrl-k right': 'pane:split-right-and-copy-active-item'
+  'ctrl-k up': 'pane:split-up-and-copy-active-item'
+  'ctrl-k down': 'pane:split-down-and-copy-active-item'
 
 # Fallback: target any atom-text-editor inside jupyter notebook
 '.jupyter-notebook atom-text-editor':
