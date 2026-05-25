@@ -16,7 +16,7 @@ Open and edit Jupyter notebooks in Pulsar.
 - **Undo/redo**: Buffer-based notebook edit history for cell text and notebook operations.
 - **Open source**: Open `.ipynb` files as plain JSON text from an active notebook or tree-view.
 - **Dual mode**: Command mode for navigation, edit mode for typing.
-- **Hydrogen execution**: Run cells with [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next) via the `hydrogen-adapter` service. Run/interrupt/restart/shutdown buttons appear in the toolbar; each code cell shows a per-cell Run button; <kbd>Ctrl+Enter</kbd> and <kbd>Shift+Enter</kbd> are bound to run the current cell.
+- **Hydrogen execution**: Run cells with [hydrogen-next](https://github.com/asiloisad/pulsar-hydrogen-next) via the `hydrogen-adapter` service. Run/interrupt/restart/shutdown buttons appear in the toolbar; each code cell shows a per-cell Run button.
 - **Execution status**: Running cells pulse a warning border and show a marching diagonal hatch on the gutter. The execution count switches to `[*]` while running. Each cell's gutter shows the last completed run duration.
 - **Output protection**: Output images cannot be dragged out of the notebook.
 - **Linting support**: Code cells are exposed through a backing `.ipynb` editor for linter integrations.
