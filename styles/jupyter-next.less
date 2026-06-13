@@ -21,14 +21,16 @@
 }
 
 // Marching diagonal stripes on the cell gutter while a cell is running.
-// 45-degree hatch with period ~14px (10px * sqrt(2)); animating background-position
-// by one full diagonal period creates a seamless upward-marching effect.
+// The hatch lives on a ::before that overhangs the gutter by one stripe tile
+// and is clipped by the gutter's overflow. Translating it by exactly one tile
+// (14.142px = 10px * sqrt(2)) marches the stripes with no seam at any edge, and
+// transform animates on the compositor without repainting the gutter each frame.
 @keyframes jupyter-gutter-hatch-march {
   from {
-    background-position: 0 0;
+    transform: translate(0, 0);
   }
   to {
-    background-position: 14px 14px;
+    transform: translate(14.142px, 14.142px);
   }
 }
 
@@ -232,17 +234,6 @@
       .cell-timer {
         color: fade(@text-color-warning, 80%);
       }
-
-      .cell-gutter {
-        background-image: repeating-linear-gradient(
-          -45deg,
-          fade(@text-color-warning, 10%) 0,
-          fade(@text-color-warning, 10%) 4px,
-          transparent 4px,
-          transparent 10px
-        );
-        animation: jupyter-gutter-hatch-march 1.4s linear infinite;
-      }
     }
 
     // Multiple selection - selected but not active
@@ -268,6 +259,11 @@
 
   // Cell gutter (execution count and type indicator)
   .cell-gutter {
+    position: relative;
+    // Clip the running-hatch ::before (which overhangs by one tile) and
+    // isolate so its z-index: -1 stays above this gutter's own background.
+    overflow: hidden;
+    isolation: isolate;
     width: @jupyter-gutter-width;
     flex-shrink: 0;
     padding: @jupyter-cell-padding;
@@ -322,7 +318,15 @@
       }
     }
 
-    &.running {
+    &.running::before {
+      content: "";
+      position: absolute;
+      // Overhang one stripe tile on every side so the translate never reveals
+      // an uncovered edge; the gutter's overflow: hidden clips it.
+      inset: -14.142px;
+      // Behind the in-flow prompt/timer text but above the gutter background
+      // (the gutter is an isolated stacking context, so -1 cannot escape it).
+      z-index: -1;
       background-image: repeating-linear-gradient(
         -45deg,
         fade(@text-color-warning, 10%) 0,
@@ -331,6 +335,7 @@
         transparent 10px
       );
       animation: jupyter-gutter-hatch-march 1.4s linear infinite;
+      pointer-events: none;
     }
   }
 
