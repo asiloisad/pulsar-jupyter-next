@@ -493,6 +493,24 @@
 
     .output-html {
       padding: 0;
+      overflow-x: auto;
+
+      table {
+        border: 1px double average(@syntax-text-color, @base-border-color);
+        border-collapse: collapse;
+
+        thead,
+        tbody,
+        tr {
+          border: inherit;
+        }
+
+        td,
+        th {
+          border: inherit;
+          padding: 0.35em 0.7em;
+        }
+      }
     }
 
     .output-image {
