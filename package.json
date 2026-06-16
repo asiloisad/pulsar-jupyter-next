@@ -58,6 +58,11 @@
       "versions": {
         "1.0.0": "provideNavigationAdapter"
       }
+    },
+    "search-adapter": {
+      "versions": {
+        "1.0.0": "provideSearchAdapter"
+      }
     }
   },
   "dependencies": {
